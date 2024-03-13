@@ -1,0 +1,17 @@
+{
+  "editor.tabSize": 2,
+  "eslint.enable": true,
+  "eslint.format.enable": true,
+  "eslint.run": "onSave",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "debug.javascript.autoAttachFilter": "onlyWithFlag",
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "workbench.iconTheme": "vscode-icons",
+  "workbench.colorTheme": "Default Dark+"
+}
