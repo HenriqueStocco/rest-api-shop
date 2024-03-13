@@ -1,12 +1,11 @@
-export function getOrders (req, res) {
+export function getOrders(req, res) {
   res
-    .status(200)
-    .json({
+    .status(200).json({
       message: 'Orders were fetched'
     })
 }
 
-export function postNewOrder (req, res) {
+export function postNewOrder(req, res) {
   const order = {
     productId: req.body.productId,
     quantity: req.body.quantity
@@ -19,7 +18,7 @@ export function postNewOrder (req, res) {
     })
 }
 
-export function getOrderId (req, res) {
+export function getOrderId(req, res) {
   res
     .status(200)
     .json({
@@ -27,7 +26,7 @@ export function getOrderId (req, res) {
     })
 }
 
-export function deleteOrder (req, res) {
+export function deleteOrder(req, res) {
   res
     .status(200)
     .json({
