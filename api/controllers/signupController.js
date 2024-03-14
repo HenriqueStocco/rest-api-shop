@@ -37,3 +37,13 @@ export function createUser(req, res) {
     })
 }
 
+export function deleteUser (req, res) {
+  User.deleteOne({ _id: req.params.userId })
+    .exec()
+    .then(() => {
+      res.status(200).json({ message: 'User deleted'})
+    })
+    .catch(err => {
+      res.status(500).json({ error: err })
+    })
+}
