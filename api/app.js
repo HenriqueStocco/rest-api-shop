@@ -5,6 +5,7 @@ import mongoose from 'mongoose'
 import process from 'node:process'
 import productsRoutes from './routes/products.js'
 import ordersRoutes from './routes/orders.js'
+import userRoutes from './routes/user.js'
 
 const app = express()
 
@@ -25,16 +26,20 @@ app.use(bodyParser.json())
 // Routes
 app.use('/products', productsRoutes)
 app.use('/orders', ordersRoutes)
+app.use('/user', userRoutes)
 
 //
 app.use((req, res, next) => {
   res
+    // Allows requests from any source.
     .header('Access-Control-Allow-Origin', '*')
     .header(
+      // Indicate which header can be used during the actual request.
       'Access-Control-Allow-Headers',
       'Origin, X-Requested-With, Content-Type, Accept, Authorization',
     )
 
+  // Check which http methods and headers are allowed before sending an actual request.
   if (req.method === 'OPTIONS') {
     res.header(
       'Access-Control-Allow-Methods',
