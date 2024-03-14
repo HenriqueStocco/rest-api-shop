@@ -1,5 +1,9 @@
 import mongoose from 'mongoose'
-import productSchema from '../models/productsSchema.js'
+import { env } from 'node:process'
+import productSchema from '../models/productSchema.js'
+
+const host = env.HOST
+const port = env.PORT
 
 export function getAllProducts(req, res) {
   productSchema
@@ -15,7 +19,7 @@ export function getAllProducts(req, res) {
             _id: doc._id,
             request: {
               type: 'GET',
-              url: 'http://localhost:3000/products/' + doc._id
+              url: `${host}:${port}/products/` + doc._id
             }
           }
         })
@@ -45,7 +49,7 @@ export function postNewProduct(req, res) {
           _id: result._id,
           request: {
             type: 'GET',
-            url: 'http://localhost:3000' + result._id
+            url: `${host}:${port}/products/` + result._id
           }
         }
       })
@@ -68,7 +72,7 @@ export function getProductId(req, res) {
           product: doc,
           request: {
             type: 'GET',
-            url: 'http://localhost:3000/products/' + doc._id
+            url: `${host}:${port}/products/` + doc._id
           }
         })
       } else {
@@ -94,7 +98,7 @@ export function updateOneProduct(req, res) {
         message: 'Product updated',
         request: {
           type: 'GET',
-          url: 'http://localhost:3000/products/' + result._id
+          url: `${host}:${port}/products/` + result._id
         }
       })
     })
@@ -114,7 +118,7 @@ export function deleteProductById(req, res) {
         message: 'Product deleted',
         request: {
           type: 'POST',
-          url: 'http://localhost:3000/products/' + result._id,
+          url: `${host}:${port}/products/` + result._id,
           body: { name: 'String', price: 'Number' }
         }
       })
